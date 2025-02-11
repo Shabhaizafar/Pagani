@@ -1,0 +1,111 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*  */
+.container{
+    position: relative;
+}
+header{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+header div.logo{
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header div.logo img{
+    width: 132px;
+    height: 15px;
+    object-fit: cover;
+    object-position: 0px 100%;
+}
+header div.menu{
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+header div.menu a{
+    color: white;
+    padding: 18px;
+    background-color: rgba(0,0,0,.4);
+}
+
+.container div.bg{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: -1;
+   
+}
+.container div.bg img{
+    width: 100%;
+    height: 100%;
+    transform: scale(1.1,1.27);
+}
+div.bg-ptn{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/bg-pattern.png');
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/*  */
+
+/*  */
+.sec-home{
+    width: 65%;
+    height: 60vh;
+    position: absolute;
+    color: white;
+    text-align: center;
+    left: 17.5%;
+    top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.sec-home img{
+    width: 250px;
+}
+.sec-home p{
+    font-size: 36px;
+    font-family: sans-serif;
+    line-height: 35px;
+}
+.sec-home .h-link{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.sec-home .h-link a{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+}
+.sec-home .h-link span{
+    rotate: 90deg;
+    display: flex;
+    align-items: center;
+}
+/* 
+<section class="sec-home">
+            <img src="assets/images/Utopia-Roadster-WEB-Logo-1.png" alt="">
+            <p>ACT THREE, SCENE TWO: PAGANI UTOPIA ROADSTER.</p>
+            <div class="h-link">
+                <a href="#">DISCOVER MORE</a>
+                <a href="#">PRESS RELEASE</a>
+            </div>
+        </section>
+ */
