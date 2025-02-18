@@ -14,3 +14,9 @@ document.body.onload = function(){
         document.body.innerHTML = bodytxt;
     }, 5000);
 }
+
+
+function all(){
+    document.querySelector('.past-c').style.left = "0vw";
+    document.querySelector('.past-c').style.transition= 'all 2s';
+}
