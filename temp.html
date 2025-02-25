@@ -24,15 +24,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all .2s;
+            z-index: 1;
+            transition: all .3s;
         }
         article:first-child{
             background-color: coral;
+            left: 0vw;
         }
         article:nth-child(2){
             background-color: aqua;
             left: 100%;
-            z-index: 1;
+            transition: all .3s;
         }
         div{
             background-color: black;
@@ -61,12 +63,42 @@
             width: 100%;
             height: 100%;
         }
-
+        .history-line{
+            background-color: red;
+            position: absolute;
+            z-index: 1;
+            width: 100vw;
+            bottom: 10px;
+            padding: 50px 0px;
+        }
+        .history-line aside::before{
+            content: '';
+            border: 1px solid white;
+            height: 150%;
+            background-color: blue;
+            position: absolute;
+            top: -400%;
+        }
+        .history-line aside{
+            background-color: coral;
+            display: flex;
+            position: relative;
+            left: calc(50% - 50px);
+            transition: all .2s;
+        }
+        .history-line aside button{
+            width: 100px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <section class="history">
-       <article>
+       <article class="history-1">
         <div>
             <img src="assets/images/1955.jpg" alt="">
         </div>
@@ -80,6 +112,23 @@
             <button class="gt">&gt;</button>
             <button class="lt">&lt;</button>
         </main>
+
+        <!-- --------------------- -->
+        <aside class="history-line">
+           <aside class="line-main">
+                <button>2001</button>
+                <button>2002</button>
+                <button>2003</button>
+                <button>2004</button>
+                <button>2005</button>
+                <button>2006</button>
+                <button>2007</button>
+                <button>2008</button>
+                <button>2009</button>
+                <button>2010</button>
+           </aside>
+        </aside>
+        <!-- --------------------- -->
     </section>
 
     <script>
@@ -93,10 +142,24 @@
         btn.addEventListener('click',function(){
             if(i==0){
                 i++;
+                document.querySelector('.history-1').style.left = "-100vw";
+                document.querySelector('.history-2').style.left = "0%";
+                history_line.style.left = "calc(50% - 150px)";
+            }
+        });
+        const history_line = document.querySelector('.line-main');
+        history_line.addEventListener("click",function(event){
+            if(event.target.innerHTML == '2001'){
+                history_line.style.left = "calc(50% - 50px)";
+                document.querySelector('.history-1').style.left = "0vw";
+                document.querySelector('.history-2').style.left = "100%";
+            }
+            if(event.target.innerHTML == '2002'){
+                history_line.style.left = "calc(50% - 150px)";
+                document.querySelector('.history-1').style.left = "-100vw";
                 document.querySelector('.history-2').style.left = "0%";
             }
         });
-
     </script>
 </body>
 </html>
