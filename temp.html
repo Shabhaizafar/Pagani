@@ -23,7 +23,6 @@
             position: absolute;
             display: flex;
             justify-content: center;
-            align-items: center;
             z-index: 1;
             transition: all .3s;
         }
@@ -71,13 +70,13 @@
             bottom: 10px;
             padding: 50px 0px;
         }
-        .history-line aside::before{
+        .history-line::before{
             content: '';
             border: 1px solid white;
-            height: 150%;
-            background-color: blue;
+            height: 30%;
             position: absolute;
-            top: -400%;
+            top: -20px;
+            left: 50%;
         }
         .history-line aside{
             background-color: coral;
@@ -93,6 +92,29 @@
             border: none;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             text-align: center;
+        }
+        .animate{
+            width: 0px;
+            height: 150px;
+            background-color: transparent;
+            border: 1px dashed white;
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            bottom: 110px;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            
+            transform-origin: bottom;
+            transition: all .2s;
+        }
+        @keyframes box {
+            from{
+                transform: scaleY(.3);
+            }
+            to{
+                transform: scaleY(1);  
+            }
         }
     </style>
 </head>
@@ -112,7 +134,7 @@
             <button class="gt">&gt;</button>
             <button class="lt">&lt;</button>
         </main>
-
+        <div class="animate"></div>
         <!-- --------------------- -->
         <aside class="history-line">
            <aside class="line-main">
@@ -145,6 +167,7 @@
                 document.querySelector('.history-1').style.left = "-100vw";
                 document.querySelector('.history-2').style.left = "0%";
                 history_line.style.left = "calc(50% - 150px)";
+                document.querySelector('.animate').style.animationName = "box";
             }
         });
         const history_line = document.querySelector('.line-main');
@@ -153,11 +176,19 @@
                 history_line.style.left = "calc(50% - 50px)";
                 document.querySelector('.history-1').style.left = "0vw";
                 document.querySelector('.history-2').style.left = "100%";
+                document.querySelector('.animate').style.animationName = "box";
+                setTimeout(() => {
+                    document.querySelector('.animate').style.animationName = "asd";
+                }, 1000);
             }
             if(event.target.innerHTML == '2002'){
                 history_line.style.left = "calc(50% - 150px)";
                 document.querySelector('.history-1').style.left = "-100vw";
                 document.querySelector('.history-2').style.left = "0%";
+                document.querySelector('.animate').style.animationName = "box";
+                setTimeout(() => {
+                    document.querySelector('.animate').style.animationName = "asd";
+                }, 1000);
             }
         });
     </script>
